@@ -1,0 +1,12 @@
+{
+  "printWidth": 120,
+  "bracketSpacing": true,
+  "jsxBracketSameLine": false,
+  "semi": true,
+  "singleQuote": true,
+  "trailingComma": "all",
+  "arrowParens": "always",
+  "parser": "typescript",
+  "endOfLine": "auto",
+  "jsxSingleQuote": true
+}

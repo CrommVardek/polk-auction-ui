@@ -1,0 +1,14 @@
+.polkauction-header {
+    display: flex;
+  }
+
+.polkauction-header-links {
+    display: flex;
+    flex-direction: row;    
+    align-items: center;
+    justify-content: right;
+    margin-right: 10px;
+    position: absolute;
+    right: 12px;
+    top: 14px;
+}

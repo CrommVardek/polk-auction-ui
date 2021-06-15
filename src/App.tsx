@@ -1,19 +1,17 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import logo from './Polkadot_logo.svg';
 import './App.css';
-import { Header } from './components/Header';
+import { Header } from './components/header/Header';
 import { RelayChain } from './models/Chain';
+import { RootStore } from './store/PolkAuctionStore';
+import { rootStore } from './store/RootStore';
+import { Provider, useDispatch } from 'react-redux';
+import { Store } from 'redux';
+import { useEffect } from 'react';
+import { selectRelayChain } from './store/application-state/ApplicationStateAction';
 
-function App() {
-
+const App = () => {
   const chains = [
-    {
-      name: 'Kusama',
-      unit: 'KSM',
-      mainColor: '#000000',
-      secondaryColor: '#ffffff',
-      website: 'https://kusama.network/',
-    } as RelayChain,
     {
       name: 'Polkadot',
       unit: 'DOT',
@@ -21,7 +19,20 @@ function App() {
       secondaryColor: '#ffffff',
       website: 'https://polkadot.network/',
     } as RelayChain,
+    {
+      name: 'Kusama',
+      unit: 'KSM',
+      mainColor: '#000000',
+      secondaryColor: '#ffffff',
+      website: 'https://kusama.network/',
+    } as RelayChain,
   ];
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(selectRelayChain(chains[0]));
+  })
 
   return (
     <>
@@ -39,6 +50,16 @@ function App() {
       </div>
     </>
   );
-}
+};;
 
-export default App;
+const AppWithStore: () => JSX.Element = () => {
+  const initialState: Partial<RootStore> = useMemo(()=>({}), []);
+  const store: Store<RootStore> = useMemo(() => rootStore(initialState), [initialState]);
+  return  (
+    <Provider store={store}>
+      <App />
+    </Provider>
+  );;
+};
+
+export default AppWithStore;

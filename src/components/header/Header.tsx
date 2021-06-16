@@ -3,6 +3,9 @@ import { RelayChain } from '../../models/Chain';
 import githubLogo from '../../github_logo.svg';
 import logo from '../../Polkadot_logo.svg';
 import './Header.css';
+import * as React from 'react';
+import { selectRelayChain } from '../../store/application-state/ApplicationStateAction';
+import { useDispatch } from 'react-redux';
 
 interface HeaderProps {
   applicationName: string;
@@ -17,38 +20,6 @@ interface CustomIconProps {
 interface RelayChainIconProps {
   website: string;
 }
-
-/*const useStyles = (chain: RelayChain) =>
-  makeStyles((theme) => {
-    return {
-      root: {
-        flexGrow: 1,
-        '&:focus': {
-          opacity: 1,
-        },
-      },
-      indicator: {
-        backgroundColor: chain.secondaryColor ?? '#ffffff',
-        height: '10px',
-        display: 'flex',
-        width: '100%',
-      },
-      toolbar: {
-        backgroundColor: chain.mainColor ?? '#000000',
-        color: chain.secondaryColor ?? '#ffffff',
-      },
-      toolbarButtons: {
-        marginLeft: 'auto',
-        color: chain.secondaryColor ?? '#ffffff',
-      },
-      chains: {
-        backgroundColor: chain.mainColor ?? '#000000',
-      },
-      title: {
-        flexGrow: 1,
-      },
-    };
-  });*/
 
 const customIcon: (props: CustomIconProps) => JSX.Element = ({ logoSvg, link }: CustomIconProps) => {
   return (
@@ -74,27 +45,54 @@ const RelayChainIcon: (props: RelayChainIconProps) => JSX.Element = ({ website }
 export const Header: (props: HeaderProps) => JSX.Element = ({ applicationName, chains }: HeaderProps) => {
   const [selectedChain, setSelectedChain] = useState(chains[0]);
 
+  const dispatch = useDispatch();
+
   const switchChain = useCallback(
-    (event, newValue) => {
-      setSelectedChain(chains[newValue]);
+    (chainName) => {
+      const chain = chains.find(c => c.name === chainName) ?? selectedChain;
+      setSelectedChain(chain);
+      dispatch(selectRelayChain(chain));
     },
-    [chains],
+    [chains, dispatch, selectedChain],
   );
 
   return (
+    <>
     <div
       style={{ backgroundColor: selectedChain.mainColor, color: selectedChain.secondaryColor }}
       className='polkauction-header'
     >
       <nav style={{ display: 'flex' }}>
-        <span style={{ display: 'flex', marginLeft: '10px' }}>
-          <h2>{applicationName}</h2>
-        </span>
-        <span className='polkauction-header-links'>
-          <RelayChainIcon website={selectedChain.website ?? ''} />
-          <GithubIcon />
-        </span>
+        <div>
+            <span style={{ display: 'flex', marginLeft: '10px' }}>
+              <h2>{applicationName}</h2>
+            </span>
+            <span className='polkauction-header-links'>
+              <RelayChainIcon website={selectedChain.website ?? ''} />
+              <GithubIcon />
+            </span>
+        </div>
+        
+      </nav>
+      
+    </div>
+    <div
+      style={{ backgroundColor: selectedChain.mainColor, color: selectedChain.secondaryColor }}
+      className='polkauction-header'
+    >
+      <nav>
+        <div className='relay-chains-tab'>
+            {chains.map(c => 
+              <button id={c.name} onClick={(e) => switchChain(c.name)}>
+                <span style={{ backgroundColor: selectedChain.name === c.name ? '#ccc' : selectedChain.mainColor, color: selectedChain.secondaryColor }}>
+                  <h3>
+                    {c.name}
+                  </h3>
+                </span>
+              </button> )}
+        </div>
       </nav>
     </div>
+    </>
   );
 };

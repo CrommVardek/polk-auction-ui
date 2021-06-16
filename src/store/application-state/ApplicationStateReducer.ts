@@ -14,8 +14,8 @@ export default baseReducer(initialState, {
     action: Action<RelayChain>,
   ): ApplicationState => {
     return {
-      currentRelayChain: action.payload ?? state.currentRelayChain,
       ...state,
+      currentRelayChain: action.payload ?? state.currentRelayChain,
     };
   },
 });

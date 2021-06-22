@@ -9,6 +9,16 @@ import { Provider, useDispatch } from 'react-redux';
 import { Store } from 'redux';
 import { useEffect } from 'react';
 import { selectRelayChain } from './store/application-state/ApplicationStateAction';
+import { Routes } from './Routes';
+import { BrowserRouter } from 'react-router-dom';
+
+export const HomePage = () => {
+  return (
+    <header className='App-header'>
+      <img src={logo} className='App-logo' alt='logo' />
+    </header>
+  );
+};
 
 const App = () => {
   const chains = [
@@ -38,9 +48,9 @@ const App = () => {
     <>
       <Header chains={chains} applicationName={'Polk-Auction'} />
       <div className='App'>
-        <header className='App-header'>
-          <img src={logo} className='App-logo' alt='logo' />
-        </header>
+        <BrowserRouter>
+          <Routes />
+        </BrowserRouter>
       </div>
     </>
   );

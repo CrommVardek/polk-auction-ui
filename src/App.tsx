@@ -46,12 +46,12 @@ const App = () => {
 
   return (
     <>
-      <Header chains={chains} applicationName={'Polk-Auction'} />
-      <div className='App'>
-        <BrowserRouter>
+      <BrowserRouter>
+        <Header chains={chains} applicationName={'Polk-Auction'} />
+        <div className='App'>
           <Routes />
-        </BrowserRouter>
-      </div>
+        </div>
+      </BrowserRouter>
     </>
   );
 };;

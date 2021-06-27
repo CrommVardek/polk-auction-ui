@@ -1,5 +1,6 @@
 import { RelayChain } from '../../models/Chain';
 import './Header.css';
+import { ParachainMenu } from './ParachainMenu';
 import { PolkAuctionHeader } from './PolkAuctionHeader';
 import { RelayChainsTab } from './RelayChainsTab';
 
@@ -13,6 +14,7 @@ export const Header: (props: HeaderProps) => JSX.Element = ({ applicationName, c
     <>
       <PolkAuctionHeader applicationName={applicationName} />
       <RelayChainsTab chains={chains} />
+      <ParachainMenu />
     </>
   );
 };

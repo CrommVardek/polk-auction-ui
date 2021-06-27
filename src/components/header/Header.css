@@ -21,6 +21,10 @@
   margin-left: 10px;
 }
 
+.relay-chains-tab h3 {
+  font-size: 16px;
+}
+
 .relay-chains-tab button {
   background-color: inherit;
   float: left;

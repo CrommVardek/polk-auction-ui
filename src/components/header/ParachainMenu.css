@@ -1,0 +1,34 @@
+
+.parachain-menu-actions-container {
+    background-color: #ccc;
+    display: flex;
+    flex-direction: column;
+    height: 60px;
+}
+
+.parachain-menu-actions {
+    margin-left: 50px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+.parachain-menu-actions button {
+    background-color: transparent;
+    border: none;
+    float: left;
+    outline: none;
+    cursor: pointer;
+    padding: 5px 10px;
+    transition: 0.4s;
+    color: #000000;
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    margin-left: 50px;
+}
+
+.parachain-menu-actions button:hover {
+    color: #eee;
+    border-bottom: 1px solid black;
+}

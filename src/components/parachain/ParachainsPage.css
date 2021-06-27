@@ -1,5 +1,6 @@
 .parachain-page {
-    background-color: #ccc;
+    background-color: #282c34;
+    color: #eee;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
@@ -8,4 +9,8 @@
 .parachain-table {
     margin-left: 10px;
     margin-top: 4px;
+}
+
+.parachain-table th {
+    height: 40px;
 }

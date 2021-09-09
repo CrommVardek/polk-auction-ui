@@ -1,7 +1,7 @@
-import { useSelector } from 'react-redux';
 import { Parachain } from '../../models/Chain';
-import { selectCurrentRelayChain } from '../../store/application-state/ApplicationStateSelector';
 import { Lease } from '../../models/Lease';
+import { selectRelayChain } from '../../store/application-state/ApplicationStateSelector';
+import { PolkAuctionStore } from '../../store/PolkAuctionStore';
 import './ParachainsPage.css';
 
 export const ParachainsPage = () => {
@@ -36,7 +36,7 @@ export const ParachainsPage = () => {
     },
   ] as Parachain[];
 
-  const relayChain = useSelector(selectCurrentRelayChain);
+  const relayChain = PolkAuctionStore.useState(selectRelayChain);
 
   return (
     <div className='parachain-page'>
@@ -54,8 +54,8 @@ export const ParachainsPage = () => {
                 <td>{p.paraId}</td>
                 <td>{p.name}</td>
                 <td>{p.leasePeriods[0].periodIndex + ' - ' + p.leasePeriods[p.leasePeriods.length - 1].periodIndex}</td>
-                <td>                
-                  {p.leasePeriods[0].deposit} {relayChain.unit}              
+                <td>
+                  {p.leasePeriods[0].deposit} {relayChain.unit}
                 </td>
               </tr>
             );

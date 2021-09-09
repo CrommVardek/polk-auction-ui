@@ -1,16 +1,11 @@
-import React, { useMemo } from 'react';
-import logo from './Polkadot_logo.svg';
+import React, { useEffect } from 'react';
+import { BrowserRouter } from 'react-router-dom';
 import './App.css';
 import { Header } from './components/header/Header';
 import { RelayChain } from './models/Chain';
-import { RootStore } from './store/PolkAuctionStore';
-import { rootStore } from './store/RootStore';
-import { Provider, useDispatch } from 'react-redux';
-import { Store } from 'redux';
-import { useEffect } from 'react';
-import { selectRelayChain } from './store/application-state/ApplicationStateAction';
+import logo from './Polkadot_logo.svg';
 import { Routes } from './Routes';
-import { BrowserRouter } from 'react-router-dom';
+import { PolkAuctionStore } from './store/PolkAuctionStore';
 
 export const HomePage = () => {
   return (
@@ -38,11 +33,11 @@ const App = () => {
     } as RelayChain,
   ];
 
-  const dispatch = useDispatch();
-
   useEffect(() => {
-    dispatch(selectRelayChain(chains[0]));
-  })
+    PolkAuctionStore.update((s) => {
+      s.currentRelayChain = chains[1];
+    });
+  });
 
   return (
     <>
@@ -54,15 +49,6 @@ const App = () => {
       </BrowserRouter>
     </>
   );
-};;
-
-const AppWithStore: () => JSX.Element = () => {
-  const store: Store<RootStore> = useMemo(() => rootStore(), []);
-  return  (
-    <Provider store={store}>
-      <App />
-    </Provider>
-  );;
 };
 
-export default AppWithStore;
+export default App;

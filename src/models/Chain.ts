@@ -9,6 +9,7 @@ export interface RelayChain extends Blockchain {
 export interface Parachain extends Blockchain {
   paraId: number;
   leasePeriods: Lease[];
+  website?: string;
 }
 
 export type Blockchain = {

@@ -1,24 +1,24 @@
 import { useCallback } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
 import { RelayChain } from '../../models/Chain';
-import { selectRelayChain } from '../../store/application-state/ApplicationStateAction';
-import { selectCurrentRelayChain } from '../../store/application-state/ApplicationStateSelector';
+import { selectRelayChain } from '../../store/application-state/ApplicationStateSelector';
+import { PolkAuctionStore } from '../../store/PolkAuctionStore';
 
 interface RelayChainsTabProps {
   chains: RelayChain[];
 }
 
 export const RelayChainsTab: (props: RelayChainsTabProps) => JSX.Element = ({ chains }: RelayChainsTabProps) => {
-  const currentRelayChain = useSelector(selectCurrentRelayChain);
-
-  const dispatch = useDispatch();
+  const currentRelayChain = PolkAuctionStore.useState(selectRelayChain);
 
   const switchChain = useCallback(
     (chainName) => {
       const chain = chains.find((c) => c.name === chainName);
-      if (chain !== undefined) dispatch(selectRelayChain(chain));
+      if (chain !== undefined)
+        PolkAuctionStore.update((s) => {
+          s.currentRelayChain = chain;
+        });
     },
-    [chains, dispatch],
+    [chains],
   );
   return (
     <div

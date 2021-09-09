@@ -1,5 +1,12 @@
+import { Store } from 'pullstate';
 import { ApplicationState } from './application-state/ApplicationState.types';
 
-export interface RootStore {
-  readonly applicationState: ApplicationState;
-}
+const initialPolkAuctionStoreState: ApplicationState = {
+  currentRelayChain: {
+    name: '',
+    unit: '',
+    mainColor: '',
+  },
+};
+
+export const PolkAuctionStore = new Store(initialPolkAuctionStoreState);

@@ -1,9 +1,9 @@
+import * as React from 'react';
 import githubLogo from '../../github_logo.svg';
 import kusamaLogo from '../../Kusama_Logo_white.svg';
 import polkadotLogo from '../../Polkadot_logo.svg';
-import * as React from 'react';
-import { useSelector } from 'react-redux';
-import { selectCurrentRelayChain } from '../../store/application-state/ApplicationStateSelector';
+import { selectRelayChain } from '../../store/application-state/ApplicationStateSelector';
+import { PolkAuctionStore } from '../../store/PolkAuctionStore';
 
 interface CustomIconProps {
   logoSvg: string;
@@ -47,7 +47,7 @@ const RelayChainIcon: (props: RelayChainIconProps) => JSX.Element = ({
 export const PolkAuctionHeader: (props: PolkAuctionHeaderProps) => JSX.Element = ({
   applicationName,
 }: PolkAuctionHeaderProps) => {
-  const currentRelayChain = useSelector(selectCurrentRelayChain);
+  const currentRelayChain = PolkAuctionStore.useState(selectRelayChain);
 
   return (
     <div

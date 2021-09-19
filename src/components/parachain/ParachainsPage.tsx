@@ -1,5 +1,6 @@
 import { Parachain } from '../../models/Chain';
 import { Lease } from '../../models/Lease';
+import { useParachains } from '../../polk-auction-api/ApiClient';
 import { selectRelayChain } from '../../store/application-state/ApplicationStateSelector';
 import { PolkAuctionStore } from '../../store/PolkAuctionStore';
 import './ParachainsPage.css';
@@ -37,6 +38,8 @@ export const ParachainsPage = () => {
   ] as Parachain[];
 
   const relayChain = PolkAuctionStore.useState(selectRelayChain);
+
+  console.log(useParachains(relayChain.name));
 
   return (
     <div className='parachain-page'>

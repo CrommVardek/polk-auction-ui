@@ -1,5 +1,5 @@
 export type Lease = {
-  periodIndex: String;
+  leaseIndexPeriod: String;
   account: String;
   deposit: Number;
 };

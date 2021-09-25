@@ -23,6 +23,7 @@ const App = () => {
       mainColor: '#e6007a',
       secondaryColor: '#ffffff',
       website: 'https://polkadot.network/',
+      planckDenomination: 10_000_000_000,
     } as RelayChain,
     {
       name: 'Kusama',
@@ -30,6 +31,7 @@ const App = () => {
       mainColor: '#000000',
       secondaryColor: '#ffffff',
       website: 'https://kusama.network/',
+      planckDenomination: 1_000_000_000_000,
     } as RelayChain,
   ];
 

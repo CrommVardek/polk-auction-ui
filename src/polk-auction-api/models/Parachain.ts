@@ -1,10 +1,9 @@
-interface Parachain {
-  paraId: number;
-  parachainLifeCycle: string;
-  onboardingAs: string;
-}
+import { Parachain } from '../../models/Chain';
 
 export interface ParachainExtended {
   parachain: Parachain;
-  parachainName: string;
+  parachainName?: string;
+  polkadotJsExplorerUrl?: string;
+  relayChainName?: string;
+  website?: string;
 }

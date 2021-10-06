@@ -1,7 +1,7 @@
 import * as React from 'react';
-import githubLogo from '../../github_logo.svg';
-import kusamaLogo from '../../Kusama_Logo_white.svg';
-import polkadotLogo from '../../Polkadot_logo.svg';
+import githubLogo from 'bundle-text:../../github_logo.svg';
+import kusamaLogo from 'bundle-text:../../Kusama_Logo_white.svg';
+import polkadotLogo from 'bundle-text:../../Polkadot_logo.svg';
 import { selectRelayChain } from '../../store/application-state/ApplicationStateSelector';
 import { PolkAuctionStore } from '../../store/PolkAuctionStore';
 

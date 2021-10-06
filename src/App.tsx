@@ -3,7 +3,7 @@ import { BrowserRouter } from 'react-router-dom';
 import './App.css';
 import { Header } from './components/header/Header';
 import { RelayChain } from './models/Chain';
-import logo from './Polkadot_logo.svg';
+import logo from 'bundle-text:./Polkadot_logo.svg';
 import { Routes } from './Routes';
 import { PolkAuctionStore } from './store/PolkAuctionStore';
 

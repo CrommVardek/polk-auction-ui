@@ -2,7 +2,7 @@ import axios from 'axios';
 import { useAxios } from 'use-axios-client';
 import { ParachainExtended } from './models/Parachain';
 
-const endPointUrl = process.env.REACT_APP_POLK_AUCTION_ENDPOINT;
+const endPointUrl = process.env.POLK_AUCTION_ENDPOINT;
 
 const parachainPath = '/parachain';
 

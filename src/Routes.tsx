@@ -1,3 +1,4 @@
+import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 import { HomePage } from './App';
 import { AuctionPage } from './components/auction/AuctionPage';

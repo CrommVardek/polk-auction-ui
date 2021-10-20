@@ -1,3 +1,4 @@
+import React from 'react';
 import { RelayChain } from '../../models/Chain';
 import './Header.css';
 import { ParachainMenu } from './ParachainMenu';

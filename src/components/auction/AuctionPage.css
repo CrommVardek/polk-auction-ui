@@ -1,0 +1,33 @@
+.auction-page {
+    background-color: #282c34;
+    color: #eee;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.auction-summary {
+    display: flex;
+    flex-direction: column;
+}
+
+.auction-summary-item-container {
+    display: flex;
+    margin: 5px;
+    margin-left: 15px;
+    width: 50%;
+    justify-content: space-between;
+    flex-direction: row;
+}
+
+.auction-summary-item-container {
+}
+
+.auction-table {
+    margin-left: 10px;
+    margin-top: 4px;
+}
+
+.auction-table th {
+    height: 40px;
+}

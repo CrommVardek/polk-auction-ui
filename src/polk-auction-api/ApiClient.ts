@@ -7,6 +7,7 @@ const endPointUrl = process.env.POLK_AUCTION_ENDPOINT;
 
 const parachainPath = '/parachain';
 const crowdloanPath = '/crowdloan';
+const auctionPath = '/auction';
 
 const apiClient = () => {
   return axios.create({
@@ -28,6 +29,15 @@ export const useCrowdloans = (relaychain: string) => {
   const url = `${crowdloanPath}/${relaychain.toLowerCase()}`;
 
   const { data, loading } = useAxios<CrowdloanExtended>({ axiosInstance: client, url });
+
+  return { data, loading };
+};
+
+export const useAuctions = (relaychain: string) => {
+  const client = apiClient();
+  const url = `${auctionPath}/${relaychain.toLowerCase()}`;
+
+  const { data, loading } = useAxios<AuctionExtended>({ axiosInstance: client, url });
 
   return { data, loading };
 };

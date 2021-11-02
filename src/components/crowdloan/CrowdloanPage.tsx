@@ -5,6 +5,7 @@ import { selectRelayChain } from '../../store/application-state/ApplicationState
 import { PolkAuctionStore } from '../../store/PolkAuctionStore';
 import { numberWithCommas } from '../../utils/DisplayUtils';
 import './CrowdloanPage.css';
+import '../common/Common.css';
 
 export const CrowdloanPage = () => {
   const relayChain = PolkAuctionStore.useState(selectRelayChain);

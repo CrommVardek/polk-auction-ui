@@ -20,6 +20,7 @@ export const AuctionPage = () => {
         </div>
       ) : (
         <>
+          {auctions.data?.currentWinning?.forEach((e) => console.log(e))}
           <div className='auction-summary'>
             <div className='auction-summary-item-container'>
               <div className='auction-summary-item-container'>{'Begin End height: '}</div>
@@ -43,15 +44,16 @@ export const AuctionPage = () => {
                 <th>Raised</th>
               </tr>
               {auctions.data?.currentWinning
-                ?.sort((w, next) => w.bid.parachainId - next.bid.parachainId)
+                ?.filter((w) => w.bid !== null && w.bid!.parachainId !== null)
+                ?.sort((w, next) => w.bid!.parachainId! - next.bid!.parachainId!)
                 ?.map((w) => {
                   return (
                     <tr>
-                      <td>{w.bid.parachainId}</td>
-                      <td>{w.bid.parachainName}</td>
-                      <td>{w.leases}</td>
+                      <td>{w.bid?.parachainId!}</td>
+                      <td>{w.bid?.parachainName ?? ''}</td>
+                      <td>{w.leases?.join(', ') ?? ''}</td>
                       <td>
-                        {numberWithCommas(Math.ceil(w.bid.amount / (relayChain.planckDenomination! as number)))}{' '}
+                        {numberWithCommas(Math.ceil((w.bid?.amount ?? 0) / (relayChain.planckDenomination! as number)))}{' '}
                         {relayChain.unit}
                       </td>
                     </tr>

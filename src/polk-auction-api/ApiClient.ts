@@ -10,6 +10,7 @@ const crowdloanPath = '/crowdloan';
 const auctionPath = '/auction';
 
 const apiClient = () => {
+  console.log(endPointUrl);
   return axios.create({
     baseURL: endPointUrl,
   });

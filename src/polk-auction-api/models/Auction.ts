@@ -1,6 +1,6 @@
 interface BidExtended {
   accountId: string;
-  parachainId: number;
+  parachainId?: number;
   amount: number;
   parachainName: string;
   website: string;
@@ -8,7 +8,7 @@ interface BidExtended {
 }
 
 interface WinningInformationExtended {
-  bid: BidExtended;
+  bid?: BidExtended;
   description: string;
   leases: Array<string>;
 }

@@ -12,9 +12,10 @@ interface FundInfo {
   firstPeriod: string;
   lastPeriod: string;
   trieIndex: string;
+  state: string;
 }
 
-interface FundExtended {
+export interface FundExtended {
   parachainId: number;
   parachainName?: string;
   website?: string;

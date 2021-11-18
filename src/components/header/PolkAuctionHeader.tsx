@@ -21,7 +21,7 @@ interface PolkAuctionHeaderProps {
 
 const customIcon: (props: CustomIconProps) => JSX.Element = ({ logoSvg, link }: CustomIconProps) => {
   return (
-    <a href={link}>
+    <a href={link} target='_blank'>
       <img
         src={logoSvg}
         alt='custom-icon'

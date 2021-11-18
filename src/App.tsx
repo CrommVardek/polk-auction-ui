@@ -44,7 +44,7 @@ const App = () => {
   return (
     <>
       <BrowserRouter>
-        <Header chains={chains} applicationName={'Polk-Auction'} />
+        <Header chains={chains} applicationName={'PolkAuction'} />
         <div className='App'>
           <Routes />
         </div>

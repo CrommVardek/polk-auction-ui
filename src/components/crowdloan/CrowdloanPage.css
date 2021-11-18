@@ -6,9 +6,21 @@
     min-height: 100vh;
 }
 
+.crowdloan-page h3 {
+    font-size: 16px;
+    text-align: left;
+    margin-left: 80px;
+}
+
 .crowdloan-table {
     margin-left: 10px;
+    margin-right: 10px;
     margin-top: 4px;
+    border-collapse:separate;
+    border:solid white 1px;
+    border-radius:6px;
+    -moz-border-radius:6px;
+    padding: 12px;
 }
 
 .crowdloan-table th {

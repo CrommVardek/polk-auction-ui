@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { useAxios } from 'use-axios-client';
-import { CrowdloanExtended } from './models/Crowdloan';
-import { ParachainExtended } from './models/Parachain';
+import { Crowdloan } from './models/Crowdloan';
+import { Parachain } from './models/Parachain';
 
 const endPointUrl = process.env.POLK_AUCTION_ENDPOINT;
 
@@ -20,7 +20,7 @@ export const useParachains = (relaychain: string) => {
   const client = apiClient();
   const url = `${parachainPath}/${relaychain.toLowerCase()}`;
 
-  const { data, loading } = useAxios<ParachainExtended[]>({ axiosInstance: client, url });
+  const { data, loading } = useAxios<Parachain[]>({ axiosInstance: client, url });
 
   return { data, loading };
 };
@@ -29,7 +29,7 @@ export const useCrowdloans = (relaychain: string) => {
   const client = apiClient();
   const url = `${crowdloanPath}/${relaychain.toLowerCase()}`;
 
-  const { data, loading } = useAxios<CrowdloanExtended>({ axiosInstance: client, url });
+  const { data, loading } = useAxios<Crowdloan>({ axiosInstance: client, url });
 
   return { data, loading };
 };

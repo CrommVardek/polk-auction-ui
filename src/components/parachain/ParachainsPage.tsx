@@ -28,23 +28,21 @@ export const ParachainsPage = () => {
               <th>Deposit</th>
             </tr>
             {parachains.data
-              ?.filter((p) => p.parachain.parachainLifeCycle === 'PARACHAIN')
-              ?.sort((p, next) => p.parachain.paraId - next.parachain.paraId)
+              ?.filter((p) => p.parachainLifeCycle === 'PARACHAIN')
+              ?.sort((p, next) => p.parachainId - next.parachainId)
               ?.map((p) => {
                 return (
                   <tr>
-                    <td>{p.parachain.paraId}</td>
+                    <td>{p.parachainId}</td>
                     <td>{p.parachainName}</td>
                     <td>
-                      {p.parachain.currentLeases[0].leaseIndexPeriod +
+                      {p.currentLeases[0].leaseIndexPeriod +
                         ' - ' +
-                        p.parachain.currentLeases[p.parachain.currentLeases.length - 1].leaseIndexPeriod}
+                        p.currentLeases[p.currentLeases.length - 1].leaseIndexPeriod}
                     </td>
                     <td>
                       {numberWithCommas(
-                        Math.ceil(
-                          (p.parachain.currentLeases[0].deposit as number) / (relayChain.planckDenomination! as number),
-                        ),
+                        Math.ceil((p.currentLeases[0].deposit as number) / (relayChain.planckDenomination! as number)),
                       )}{' '}
                       {relayChain.unit}
                     </td>

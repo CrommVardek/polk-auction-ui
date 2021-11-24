@@ -1,12 +1,12 @@
 import React from 'react';
-import { FundExtended } from '../../polk-auction-api/models/Crowdloan';
+import { Fund } from '../../polk-auction-api/models/Crowdloan';
 import { selectRelayChain } from '../../store/application-state/ApplicationStateSelector';
 import { PolkAuctionStore } from '../../store/PolkAuctionStore';
 import { numberWithCommas } from '../../utils/DisplayUtils';
 import './CrowdloanPage.css';
 
 interface CrowdloanTableProps {
-  funds: FundExtended[] | undefined;
+  funds: Fund[] | undefined;
 }
 
 export const CrowdloanTable: (props: CrowdloanTableProps) => JSX.Element = ({ funds }) => {

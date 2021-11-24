@@ -1,4 +1,4 @@
-interface BidExtended {
+interface Bid {
   accountId: string;
   parachainId?: number;
   amount: number;
@@ -7,8 +7,8 @@ interface BidExtended {
   polkadotJsExplorerUrl: string;
 }
 
-interface WinningInformationExtended {
-  bid?: BidExtended;
+interface WinningInformation {
+  bid?: Bid;
   description: string;
   leases: Array<string>;
 }
@@ -19,5 +19,5 @@ interface AuctionExtended {
   phase: string;
   auctionIndex: number;
   leasePeriods: Array<number>;
-  currentWinning: Array<WinningInformationExtended>;
+  currentWinning: Array<WinningInformation>;
 }

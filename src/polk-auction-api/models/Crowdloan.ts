@@ -15,7 +15,7 @@ interface FundInfo {
   state: string;
 }
 
-export interface FundExtended {
+export interface Fund {
   parachainId: number;
   parachainName?: string;
   website?: string;
@@ -23,6 +23,6 @@ export interface FundExtended {
   fundInfo: FundInfo;
 }
 
-export interface CrowdloanExtended {
-  funds: FundExtended[];
+export interface Crowdloan {
+  funds: Fund[];
 }

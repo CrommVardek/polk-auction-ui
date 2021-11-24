@@ -5,7 +5,7 @@ import { selectRelayChain } from '../../store/application-state/ApplicationState
 import { PolkAuctionStore } from '../../store/PolkAuctionStore';
 import './CrowdloanPage.css';
 import '../common/Common.css';
-import { CrowdloanTable } from './CrowdloandTable';
+import { CrowdloanTable } from './CrowdloanTable';
 
 export const CrowdloanPage = () => {
   const relayChain = PolkAuctionStore.useState(selectRelayChain);

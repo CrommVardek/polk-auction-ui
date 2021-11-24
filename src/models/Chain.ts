@@ -1,5 +1,3 @@
-import { Lease } from './Lease';
-
 export interface RelayChain extends Blockchain {
   mainColor: string;
   secondaryColor?: string;
@@ -8,9 +6,7 @@ export interface RelayChain extends Blockchain {
 }
 
 export interface Parachain extends Blockchain {
-  paraId: number;
-  currentLeases: Lease[];
-  parachainLifeCycle: string;
+  parachainId: number;
 }
 
 export type Blockchain = {

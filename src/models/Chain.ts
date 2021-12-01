@@ -5,10 +5,6 @@ export interface RelayChain extends Blockchain {
   planckDenomination?: Number;
 }
 
-export interface Parachain extends Blockchain {
-  parachainId: number;
-}
-
 export type Blockchain = {
   name: string;
   unit: string;

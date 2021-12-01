@@ -4,11 +4,7 @@ import kusamaLogo from '../../Kusama_Logo_white.svg';
 import polkadotLogo from '../../Polkadot_logo.svg';
 import { selectRelayChain } from '../../store/application-state/ApplicationStateSelector';
 import { PolkAuctionStore } from '../../store/PolkAuctionStore';
-
-interface CustomIconProps {
-  logoSvg: string;
-  link: string;
-}
+import { CustomIcon } from '../common/Icon';
 
 interface RelayChainIconProps {
   relayChainName: string;
@@ -19,21 +15,12 @@ interface PolkAuctionHeaderProps {
   applicationName: string;
 }
 
-const customIcon: (props: CustomIconProps) => JSX.Element = ({ logoSvg, link }: CustomIconProps) => {
-  return (
-    <a href={link} target='_blank'>
-      <img
-        src={logoSvg}
-        alt='custom-icon'
-        style={{ width: '32px', height: '32px', margin: '6px' }}
-        className='custom-logo'
-      />
-    </a>
-  );
-};
-
 const GithubIcon = () => {
-  return customIcon({ logoSvg: githubLogo, link: 'https://github.com/CrommVardek/polk-auction-ui' });
+  return CustomIcon({
+    logoSvg: githubLogo,
+    link: 'https://github.com/CrommVardek/polk-auction-ui',
+    style: { width: '32px', height: '32px', margin: '6px' },
+  });
 };
 
 const RelayChainIcon: (props: RelayChainIconProps) => JSX.Element = ({
@@ -41,7 +28,7 @@ const RelayChainIcon: (props: RelayChainIconProps) => JSX.Element = ({
   website,
 }: RelayChainIconProps) => {
   const logo = relayChainName.toLowerCase() === 'kusama' ? kusamaLogo : polkadotLogo;
-  return customIcon({ logoSvg: logo, link: website });
+  return CustomIcon({ logoSvg: logo, link: website, style: { width: '32px', height: '32px', margin: '6px' } });
 };
 
 export const PolkAuctionHeader: (props: PolkAuctionHeaderProps) => JSX.Element = ({

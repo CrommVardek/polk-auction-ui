@@ -7,7 +7,9 @@ User Interface for the [PolkAuction core](https://github.com/CrommVardek/polk-au
 
 ## Run
 
-`yarn start`
+Locally : `yarn start`
+
+Tests : `yarn test`
 
 ## Contributions, issues and PR
 

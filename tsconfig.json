@@ -11,7 +11,8 @@
     "allowJs": true,
     "jsx": "react",
     "resolveJsonModule": true,
-    "allowSyntheticDefaultImports": true
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true
   },
   "include": [
     "./src/**/*",

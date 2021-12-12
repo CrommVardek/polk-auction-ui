@@ -60,13 +60,16 @@
   },
   "jest": {
     "preset": "ts-jest",
-    "verbose": true,
     "transform": {
       "\\.tsx?$": [
         "ts-jest"
       ],
       ".+\\.(css|styl|less|sass|scss|png|jpg|ttf|woff|woff2|svg)$": "jest-transform-stub"
     },
-    "moduleFileExtensions": ["ts", "tsx", "js", "jsx", "json", "node"]
+    "moduleFileExtensions": ["ts", "tsx", "js", "jsx", "json", "node"],
+    "setupFilesAfterEnv": [
+      "<rootDir>/test/setupTests.ts"
+    ],
+    "testEnvironment": "jsdom"
   }
 }

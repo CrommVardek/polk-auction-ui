@@ -28,7 +28,7 @@ export const RelayChainsTab: (props: RelayChainsTabProps) => JSX.Element = ({ ch
       <nav>
         <div className='relay-chains-tab'>
           {chains.map((c) => (
-            <button id={c.name} onClick={(e) => switchChain(c.name)}>
+            <button key={c.name} id={c.name} onClick={(e) => switchChain(c.name)}>
               <span
                 style={{
                   backgroundColor: currentRelayChain.name === c.name ? '#ccc' : currentRelayChain.mainColor,

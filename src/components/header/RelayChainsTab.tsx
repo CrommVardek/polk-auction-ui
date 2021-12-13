@@ -3,9 +3,33 @@ import { RelayChain } from '../../models/Chain';
 import { selectRelayChain } from '../../store/application-state/ApplicationStateSelector';
 import { PolkAuctionStore } from '../../store/PolkAuctionStore';
 
+interface RelayChainButtonProps {
+  chain: RelayChain;
+  onClick: (chainName: string) => void;
+}
+
 interface RelayChainsTabProps {
   chains: RelayChain[];
 }
+
+export const RelayChainButton: (props: RelayChainButtonProps) => JSX.Element = ({
+  chain,
+  onClick,
+}: RelayChainButtonProps) => {
+  const currentRelayChain = PolkAuctionStore.useState(selectRelayChain);
+  return (
+    <button key={chain.name} id={chain.name} onClick={() => onClick(chain.name)}>
+      <span
+        style={{
+          backgroundColor: currentRelayChain.name === chain.name ? '#ccc' : currentRelayChain.mainColor,
+          color: currentRelayChain.secondaryColor,
+        }}
+      >
+        <h3>{chain.name}</h3>
+      </span>
+    </button>
+  );
+};
 
 export const RelayChainsTab: (props: RelayChainsTabProps) => JSX.Element = ({ chains }: RelayChainsTabProps) => {
   const currentRelayChain = PolkAuctionStore.useState(selectRelayChain);
@@ -20,6 +44,7 @@ export const RelayChainsTab: (props: RelayChainsTabProps) => JSX.Element = ({ ch
     },
     [chains],
   );
+
   return (
     <div
       style={{ backgroundColor: currentRelayChain.mainColor, color: currentRelayChain.secondaryColor }}
@@ -28,16 +53,7 @@ export const RelayChainsTab: (props: RelayChainsTabProps) => JSX.Element = ({ ch
       <nav>
         <div className='relay-chains-tab'>
           {chains.map((c) => (
-            <button key={c.name} id={c.name} onClick={(e) => switchChain(c.name)}>
-              <span
-                style={{
-                  backgroundColor: currentRelayChain.name === c.name ? '#ccc' : currentRelayChain.mainColor,
-                  color: currentRelayChain.secondaryColor,
-                }}
-              >
-                <h3>{c.name}</h3>
-              </span>
-            </button>
+            <RelayChainButton chain={c} onClick={switchChain} />
           ))}
         </div>
       </nav>

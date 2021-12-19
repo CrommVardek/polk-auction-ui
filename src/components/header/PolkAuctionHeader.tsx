@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import githubLogo from '../../github_logo.svg';
 import kusamaLogo from '../../Kusama_Logo_white.svg';
 import polkadotLogo from '../../Polkadot_logo.svg';
@@ -36,17 +37,18 @@ export const PolkAuctionHeader: (props: PolkAuctionHeaderProps) => JSX.Element =
 }: PolkAuctionHeaderProps) => {
   const currentRelayChain = PolkAuctionStore.useState(selectRelayChain);
 
+  const relayChainStyle = { backgroundColor: currentRelayChain.mainColor, color: currentRelayChain.secondaryColor };
   return (
-    <div
-      style={{ backgroundColor: currentRelayChain.mainColor, color: currentRelayChain.secondaryColor }}
-      className='polkauction-header'
-    >
+    <div style={relayChainStyle} className='polkauction-header'>
       <nav style={{ display: 'flex' }}>
         <div>
           <span style={{ display: 'flex', marginLeft: '10px' }}>
             <h2>{applicationName}</h2>
           </span>
           <span className='polkauction-header-links'>
+            <Link to='/about' style={{ ...relayChainStyle, textDecoration: 'none', marginRight: '12px' }}>
+              About
+            </Link>
             <RelayChainIcon relayChainName={currentRelayChain.name} website={currentRelayChain.website ?? ''} />
             <GithubIcon />
           </span>

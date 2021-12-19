@@ -3,7 +3,7 @@ import React from 'react';
 import { CrowdloanPage } from '../../../src/components/crowdloan/CrowdloanPage';
 import { CrowdloanTable } from '../../../src/components/crowdloan/CrowdloanTable';
 import * as apiClient from '../../../src/polk-auction-api/ApiClient';
-import { Crowdloan, Fund } from '../../../src/polk-auction-api/models/Crowdloan';
+import { Crowdloan } from '../../../src/polk-auction-api/models/Crowdloan';
 import { SpinnerDotted } from 'spinners-react';
 import { funds } from '../../testData';
 

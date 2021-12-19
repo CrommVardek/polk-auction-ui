@@ -65,6 +65,7 @@
   },
   "jest": {
     "preset": "ts-jest",
+    "verbose": true,
     "transform": {
       "\\.tsx?$": [
         "ts-jest"

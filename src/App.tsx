@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import './App.css';
+import { Footer } from './components/Footer';
 import { Header } from './components/header/Header';
 import { RelayChain } from './models/Chain';
 import logo from './Polkadot_logo.svg';
@@ -48,6 +49,7 @@ const App = () => {
         <div className='App'>
           <Routes />
         </div>
+        <Footer />
       </BrowserRouter>
     </>
   );

@@ -1,8 +1,9 @@
 import React from 'react';
 import { Fund } from '../../polk-auction-api/models/Crowdloan';
+import { Parachain } from '../../polk-auction-api/models/Parachain';
 import { selectRelayChain } from '../../store/application-state/ApplicationStateSelector';
 import { PolkAuctionStore } from '../../store/PolkAuctionStore';
-import { numberWithCommas } from '../../utils/DisplayUtils';
+import { numberWithCommas, usePolkadotJsLinkLogo, useWebsiteLinkLogo } from '../../utils/DisplayUtils';
 import './CrowdloanPage.css';
 
 interface CrowdloanTableProps {
@@ -20,6 +21,8 @@ export const CrowdloanTable: (props: CrowdloanTableProps) => JSX.Element = ({ fu
           <th>Depositor</th>
           <th>Lease Periods</th>
           <th>Raised</th>
+          <th />
+          <th />
         </tr>
         {funds
           ?.sort((f, next) => f.parachainId - next.parachainId)
@@ -40,6 +43,8 @@ export const CrowdloanTable: (props: CrowdloanTableProps) => JSX.Element = ({ fu
                   {numberWithCommas(Math.ceil(f.fundInfo.cap / (relayChain.planckDenomination! as number)))}{' '}
                   {relayChain.unit}
                 </td>
+                <td>{useWebsiteLinkLogo({ website: f.website } as Parachain)}</td>
+                <td>{usePolkadotJsLinkLogo({ website: f.website } as Parachain)}</td>
               </tr>
             );
           })}

@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import githubLogo from '../../github_logo.svg';
 import kusamaLogo from '../../Kusama_Logo_white.svg';
-import polkadotLogo from '../../Polkadot_logo.svg';
+import polkadotLogo from '../../assets/logos/polkadot-logo-white.svg';
 import { selectRelayChain } from '../../store/application-state/ApplicationStateSelector';
 import { PolkAuctionStore } from '../../store/PolkAuctionStore';
 import { CustomIcon } from '../common/Icon';

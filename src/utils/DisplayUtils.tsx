@@ -10,16 +10,14 @@ export const numberWithCommas = (x: Number) => {
   return x.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ',');
 };
 
-export const useWebsiteLinkLogo = (p: Parachain) =>
-  useMemo(() => (p.website ? <CustomIcon logoSvg={websiteLogo} link={p.website!} style={iconStyle} /> : <></>), []);
+export const getWebsiteLinkLogo = (p: Parachain) => {
+  p.website ? <CustomIcon logoSvg={websiteLogo} link={p.website!} style={iconStyle} /> : <></>;
+};
 
-export const usePolkadotJsLinkLogo = (p: Parachain) =>
-  useMemo(
-    () =>
-      p.polkadotJsExplorerUrl ? (
-        <CustomIcon logoSvg={polkadotJsLogo} link={p.polkadotJsExplorerUrl!} style={iconStyle} />
-      ) : (
-        <></>
-      ),
-    [],
+export const getPolkadotJsLinkLogo = (p: Parachain) => {
+  p.polkadotJsExplorerUrl ? (
+    <CustomIcon logoSvg={polkadotJsLogo} link={p.polkadotJsExplorerUrl!} style={iconStyle} />
+  ) : (
+    <></>
   );
+};

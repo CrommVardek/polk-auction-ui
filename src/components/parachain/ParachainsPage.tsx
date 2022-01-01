@@ -3,7 +3,7 @@ import { SpinnerDotted } from 'spinners-react';
 import { useParachains } from '../../polk-auction-api/ApiClient';
 import { selectRelayChain } from '../../store/application-state/ApplicationStateSelector';
 import { PolkAuctionStore } from '../../store/PolkAuctionStore';
-import { numberWithCommas, usePolkadotJsLinkLogo, useWebsiteLinkLogo } from '../../utils/DisplayUtils';
+import { numberWithCommas, getPolkadotJsLinkLogo, getWebsiteLinkLogo } from '../../utils/DisplayUtils';
 import './ParachainsPage.css';
 import '../common/Common.css';
 
@@ -48,8 +48,8 @@ export const ParachainsPage = () => {
                       )}{' '}
                       {relayChain.unit}
                     </td>
-                    <td>{useWebsiteLinkLogo(p)}</td>
-                    <td>{usePolkadotJsLinkLogo(p)}</td>
+                    <td>{getWebsiteLinkLogo(p)}</td>
+                    <td>{getPolkadotJsLinkLogo(p)}</td>
                   </tr>
                 );
               })}

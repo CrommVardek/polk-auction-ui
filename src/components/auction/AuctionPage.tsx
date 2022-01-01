@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { SpinnerDotted } from 'spinners-react';
-import { useAuctions } from '../../polk-auction-api/ApiClient';
+import { useAuctions as useAuction } from '../../polk-auction-api/ApiClient';
+import { Auction } from '../../polk-auction-api/models/Auction';
 import { selectRelayChain } from '../../store/application-state/ApplicationStateSelector';
 import { PolkAuctionStore } from '../../store/PolkAuctionStore';
 import { numberWithCommas } from '../../utils/DisplayUtils';
@@ -10,29 +11,53 @@ import './AuctionPage.css';
 export const AuctionPage = () => {
   const relayChain = PolkAuctionStore.useState(selectRelayChain);
 
+  const auction = useAuction(relayChain.name);
+
+  const useMinStartDateLeasePeriod = useMemo(() => {
+    if (auction?.data?.leasePeriods !== undefined) {
+      const timeStamp = auction.data?.leasePeriods.reduce((prev, curr) =>
+        prev.startTimeStamp! < curr.startTimeStamp! ? prev : curr,
+      ).startTimeStamp;
+      return new Date(timeStamp! as number).toUTCString();
+    }
+    return '';
+  }, [auction]);
+
+  const useMaxEndDateLeasePeriod = useMemo(() => {
+    if (auction.data?.leasePeriods !== undefined) {
+      const timeStamp = auction.data?.leasePeriods.reduce((prev, curr) =>
+        prev.endTimeStamp! > curr.endTimeStamp! ? prev : curr,
+      ).endTimeStamp;
+      return new Date(timeStamp! as number).toUTCString();
+    }
+    return '';
+  }, [auction]);
+
   //TODO
-  const auctions = useAuctions(relayChain.name);
   return (
     <div className='auction-page'>
-      {auctions.loading ? (
+      {auction.loading ? (
         <div className='spinner-loading'>
           <SpinnerDotted color='#eee' />
         </div>
       ) : (
         <>
-          {auctions.data?.currentWinning?.forEach((e) => console.log(e))}
+          {auction.data?.currentWinning?.forEach((e) => console.log(e))}
           <div className='auction-summary'>
             <div className='auction-summary-item-container'>
               <div className='auction-summary-item-container'>{'Begin End height: '}</div>
-              <div className='auction-summary-item-container'>{auctions.data?.beginEnd}</div>
+              <div className='auction-summary-item-container'>{auction.data?.beginEnd}</div>
             </div>
             <div className='auction-summary-item-container'>
               <div className='auction-summary-item-container'>{'Finish End height: '}</div>
-              <div className='auction-summary-item-container'>{auctions.data?.finishEnd}</div>
+              <div className='auction-summary-item-container'>{auction.data?.finishEnd}</div>
             </div>
             <div className='auction-summary-item-container'>
               <div className='auction-summary-item-container'>{'Lease periods: '}</div>
-              <div className='auction-summary-item-container'>{auctions.data?.leasePeriods.join(', ')}</div>
+              <div className='auction-summary-item-container'>
+                [{auction.data?.leasePeriods.map((lp) => lp.period).join(', ')}]{' '}
+                {`(From ${useMinStartDateLeasePeriod} to ${useMaxEndDateLeasePeriod} )`}
+              </div>
             </div>
           </div>
           <table className='auction-table'>
@@ -43,7 +68,7 @@ export const AuctionPage = () => {
                 <th>Lease Periods</th>
                 <th>Raised</th>
               </tr>
-              {auctions.data?.currentWinning
+              {auction.data?.currentWinning
                 ?.filter((w) => w.bid !== null && w.bid!.parachainId !== null)
                 ?.sort((w, next) => w.bid!.parachainId! - next.bid!.parachainId!)
                 ?.map((w) => {

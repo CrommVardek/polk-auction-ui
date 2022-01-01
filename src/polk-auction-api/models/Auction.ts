@@ -1,3 +1,5 @@
+import { LeasePeriod } from './Lease';
+
 interface Bid {
   accountId: string;
   parachainId?: number;
@@ -13,11 +15,11 @@ interface WinningInformation {
   leases: Array<string>;
 }
 
-interface AuctionExtended {
+export interface Auction {
   beginEnd: string;
   finishEnd: string;
   phase: string;
   auctionIndex: number;
-  leasePeriods: Array<number>;
+  leasePeriods: Array<LeasePeriod>;
   currentWinning: Array<WinningInformation>;
 }

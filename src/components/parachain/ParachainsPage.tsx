@@ -1,4 +1,4 @@
-import React, { CSSProperties, useMemo } from 'react';
+import React from 'react';
 import { SpinnerDotted } from 'spinners-react';
 import { useParachains } from '../../polk-auction-api/ApiClient';
 import { selectRelayChain } from '../../store/application-state/ApplicationStateSelector';

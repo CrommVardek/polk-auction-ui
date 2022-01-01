@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { useAxios } from 'use-axios-client';
+import { Auction } from './models/Auction';
 import { Crowdloan } from './models/Crowdloan';
 import { Parachain } from './models/Parachain';
 
@@ -37,7 +38,7 @@ export const useAuctions = (relaychain: string) => {
   const client = apiClient();
   const url = `${auctionPath}/${relaychain.toLowerCase()}`;
 
-  const { data, loading } = useAxios<AuctionExtended>({ axiosInstance: client, url });
+  const { data, loading } = useAxios<Auction>({ axiosInstance: client, url });
 
   return { data, loading };
 };

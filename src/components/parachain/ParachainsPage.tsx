@@ -37,12 +37,12 @@ export const ParachainsPage = () => {
               ?.filter((p) => p.parachainLifeCycle === 'PARACHAIN')
               ?.sort((p, next) => p.parachainId - next.parachainId)
               ?.map((p) => {
-                //TODO
-                const startDate = useMinStartDateLeasePeriod(
-                  p.currentLeases.map((l) => {
-                    return { block } as LeasePeriod;
-                  }),
-                );
+                // //TODO
+                // const startDate = useMinStartDateLeasePeriod(
+                //   p.currentLeases.map((l) => {
+                //     return { block } as LeasePeriod;
+                //   }),
+                // );
                 return (
                   <tr>
                     <td>{p.parachainId}</td>

@@ -1,10 +1,10 @@
 import { mount } from 'enzyme';
 import React from 'react';
+import { SpinnerDotted } from 'spinners-react';
 import { CrowdloanPage } from '../../../src/components/crowdloan/CrowdloanPage';
 import { CrowdloanTable } from '../../../src/components/crowdloan/CrowdloanTable';
 import * as apiClient from '../../../src/polk-auction-api/ApiClient';
 import { Crowdloan } from '../../../src/polk-auction-api/models/Crowdloan';
-import { SpinnerDotted } from 'spinners-react';
 import { funds } from '../../testData';
 
 describe('<CrowdloanPage />', () => {

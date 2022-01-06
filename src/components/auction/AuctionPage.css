@@ -31,3 +31,10 @@
 .auction-table th {
     height: 40px;
 }
+
+.auction-no-ongoing-auction {
+    text-align: left;
+    margin: 0 auto;
+    width: 1000px;
+    padding: 2em 0;
+}

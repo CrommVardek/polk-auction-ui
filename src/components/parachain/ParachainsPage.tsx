@@ -3,9 +3,13 @@ import { SpinnerDotted } from 'spinners-react';
 import { useParachains } from '../../polk-auction-api/ApiClient';
 import { selectRelayChain } from '../../store/application-state/ApplicationStateSelector';
 import { PolkAuctionStore } from '../../store/PolkAuctionStore';
-import { numberWithCommas, getPolkadotJsLinkLogo, getWebsiteLinkLogo } from '../../utils/DisplayUtils';
+import { numberWithCommas } from '../../utils/DisplayUtils';
 import './ParachainsPage.css';
 import '../common/Common.css';
+import { PolkadotJsLinkLogo, WebsiteLinkLogo } from '../common/LogoWithLinks';
+import { Tooltip } from '../common/ToolTip';
+import { useMinStartDateLeasePeriod } from '../../utils/Hooks';
+import { LeasePeriod } from '../../polk-auction-api/models/Lease';
 
 export const ParachainsPage = () => {
   const relayChain = PolkAuctionStore.useState(selectRelayChain);
@@ -33,14 +37,22 @@ export const ParachainsPage = () => {
               ?.filter((p) => p.parachainLifeCycle === 'PARACHAIN')
               ?.sort((p, next) => p.parachainId - next.parachainId)
               ?.map((p) => {
+                //TODO
+                const startDate = useMinStartDateLeasePeriod(
+                  p.currentLeases.map((l) => {
+                    return { block } as LeasePeriod;
+                  }),
+                );
                 return (
                   <tr>
                     <td>{p.parachainId}</td>
                     <td>{p.parachainName}</td>
                     <td>
-                      {p.currentLeases[0].leaseIndexPeriod +
-                        ' - ' +
-                        p.currentLeases[p.currentLeases.length - 1].leaseIndexPeriod}
+                      <Tooltip text={'yolo'}>
+                        {p.currentLeases[0].leaseIndexPeriod +
+                          ' - ' +
+                          p.currentLeases[p.currentLeases.length - 1].leaseIndexPeriod}
+                      </Tooltip>
                     </td>
                     <td>
                       {numberWithCommas(
@@ -48,8 +60,8 @@ export const ParachainsPage = () => {
                       )}{' '}
                       {relayChain.unit}
                     </td>
-                    <td>{getWebsiteLinkLogo(p)}</td>
-                    <td>{getPolkadotJsLinkLogo(p)}</td>
+                    <td>{WebsiteLinkLogo(p)}</td>
+                    <td>{PolkadotJsLinkLogo(p)}</td>
                   </tr>
                 );
               })}

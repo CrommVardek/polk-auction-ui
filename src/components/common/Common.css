@@ -12,7 +12,7 @@
 
 .tooltip .tooltip-text {
     visibility: hidden;
-    width: auto;
+    width: 100px;
     background-color: black;
     color: #fff;
     text-align: center;

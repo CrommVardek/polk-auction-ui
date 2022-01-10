@@ -1,10 +1,9 @@
 import React, { useMemo } from 'react';
 import { Auction } from '../../polk-auction-api/models/Auction';
-import { LeasePeriod } from '../../polk-auction-api/models/Lease';
 import { selectRelayChain } from '../../store/application-state/ApplicationStateSelector';
 import { PolkAuctionStore } from '../../store/PolkAuctionStore';
 import { numberWithCommas } from '../../utils/DisplayUtils';
-import { useMaxEndDateLeasePeriod, useMinStartDateLeasePeriod } from '../../utils/Hooks';
+import { getMaxEndDateLeasePeriod, getMinStartDateLeasePeriod } from '../../utils/LeasePeriodUtils';
 import './AuctionPage.css';
 
 interface AuctionDetailsProps {
@@ -36,7 +35,7 @@ export const AuctionDetails: (props: AuctionDetailsProps) => JSX.Element = ({ au
               <div className='auction-summary-item-container'>{'Lease periods: '}</div>
               <div className='auction-summary-item-container'>
                 [{auction?.leasePeriods.map((lp) => lp.period).join(', ')}]{' '}
-                {`(From ${useMinStartDateLeasePeriod(auction?.leasePeriods)} to ${useMaxEndDateLeasePeriod(
+                {`(From ${getMinStartDateLeasePeriod(auction?.leasePeriods)} to ${getMaxEndDateLeasePeriod(
                   auction?.leasePeriods,
                 )} )`}
               </div>

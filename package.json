@@ -30,6 +30,7 @@
   },
   "scripts": {
     "start": "cross-env NODE_ENV=local parcel ./src/index.html -p 3000",
+    "start:prod": "cross-env NODE_ENV=prod parcel ./src/index.html -p 3000",
     "test": "jest",
     "build": "parcel build ./src/index.html"
   },

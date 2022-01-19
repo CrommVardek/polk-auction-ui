@@ -43,7 +43,7 @@ export const PolkAuctionHeader: (props: PolkAuctionHeaderProps) => JSX.Element =
       <nav style={{ display: 'flex' }}>
         <div>
           <span>
-            <h2 className='.application-name'>{applicationName}</h2>
+            <h2 className='application-name'>{applicationName}</h2>
           </span>
           <span className='polkauction-header-links'>
             <Link to='/about' style={{ ...relayChainStyle, textDecoration: 'none', marginRight: '12px' }}>

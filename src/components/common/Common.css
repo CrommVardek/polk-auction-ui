@@ -6,8 +6,8 @@
 }
 
 .website-icon:hover {
-  background-color: white;
-  border-radius: 9px;
+  /* fill: white;
+  border-radius: 9px; */
 }
 
 .tooltip {

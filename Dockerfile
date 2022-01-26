@@ -1,7 +1,13 @@
-FROM node:14
-WORKDIR /usr/src/app
+# Build step
+FROM node:14 as build
+WORKDIR /app
 COPY package*.json ./
 RUN yarn install
-COPY . .
-EXPOSE 1234
-CMD [ "yarn", "parcel", "src/index.html" ]
+COPY . ./
+RUN yarn build:prod
+
+# Run step
+FROM nginx:stable-alpine
+COPY --from=build /app/build /usr/share/nginx/html
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]

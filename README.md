@@ -11,6 +11,10 @@ Locally : `yarn start`
 
 Tests : `yarn test`
 
+## Build (with Docker)
+
+`docker build -t polk-auction-ui .`
+
 ## Contributions, issues and PR
 
 We are open to contributions, ideas, issues, etc. Feel free to open a PR or an issue.

@@ -8,10 +8,12 @@ import { Parachain } from '../../../src/polk-auction-api/models/Parachain';
 import { parachains, parachainsWithParaThreads } from '../../testData';
 
 describe('<ParachainsPage />', () => {
+
   it('renders one spinner if loading data', () => {
     const wrapper = mount(<ParachainsPage />);
     expect(wrapper.find(SpinnerDotted)).toHaveLength(1);
   });
+
   it('renders one tables', () => {
     const useParachainsMock = jest.spyOn(apiClient, 'useParachains');
     useParachainsMock.mockImplementation((relayChain: String) => {
@@ -20,6 +22,8 @@ describe('<ParachainsPage />', () => {
     const wrapper = mount(<ParachainsPage />);
     expect(wrapper.find('table')).toHaveLength(1);
   });
+
+  //TODO
   it('renders as much website link as there are parachain URL from data', () => {
     const useParachainsMock = jest.spyOn(apiClient, 'useParachains');
     useParachainsMock.mockImplementation((relayChain: String) => {
@@ -28,6 +32,7 @@ describe('<ParachainsPage />', () => {
     const wrapper = mount(<ParachainsPage />);
     expect(wrapper.find(CustomIcon)).toHaveLength(parachains.filter((p) => p.website !== undefined).length);
   });
+
   it('renders X <tr>, where X is the number of parachains with lifecycle Parachain + 1', () => {
     const useParachainsMock = jest.spyOn(apiClient, 'useParachains');
     useParachainsMock.mockImplementation((relayChain: String) => {

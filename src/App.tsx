@@ -4,16 +4,12 @@ import './App.css';
 import { Footer } from './components/Footer';
 import { Header } from './components/header/Header';
 import { RelayChain } from './models/Chain';
-import logo from './assets/logos/polkadot-logo-white.svg';
 import { Routes } from './Routes';
 import { PolkAuctionStore } from './store/PolkAuctionStore';
+import { AboutPage } from './components/about/AboutPage';
 
 export const HomePage = () => {
-  return (
-    <header className='App-header'>
-      <img src={logo} className='App-logo' alt='logo' />
-    </header>
-  );
+  return <AboutPage />;
 };
 
 const App = () => {

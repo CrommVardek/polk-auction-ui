@@ -1,15 +1,10 @@
 import React from 'react';
 import { Fund } from '../../polk-auction-api/models/Crowdloan';
-import { LeasePeriod } from '../../polk-auction-api/models/Lease';
 import { Parachain } from '../../polk-auction-api/models/Parachain';
 import { selectRelayChain } from '../../store/application-state/ApplicationStateSelector';
 import { PolkAuctionStore } from '../../store/PolkAuctionStore';
 import { numberWithCommas } from '../../utils/DisplayUtils';
-import {
-  getMaxEndDateLeasePeriod,
-  getMinStartDateLeasePeriod,
-  timeStampToDateFormattedString,
-} from '../../utils/LeasePeriodUtils';
+import { timeStampToDateFormattedString } from '../../utils/LeasePeriodUtils';
 import { PolkadotJsLinkLogo, WebsiteLinkLogo } from '../common/LogoWithLinks';
 import { Tooltip } from '../common/ToolTip';
 import './CrowdloanPage.css';

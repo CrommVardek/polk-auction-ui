@@ -2,6 +2,12 @@
     display: flex;
   }
 
+.polkauction-header .application-name {
+  display: flex;
+  justify-content: left;
+  margin-left: 3vw;
+}
+
 .polkauction-header-links {
     display: flex;
     flex-direction: row;    
@@ -18,7 +24,7 @@
   flex-direction: row;    
   align-items: center;
   justify-content: left;
-  margin-left: 10px;
+  margin-left: 4.5vw;
 }
 
 .relay-chains-tab h3 {

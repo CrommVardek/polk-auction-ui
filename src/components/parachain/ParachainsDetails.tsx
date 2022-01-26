@@ -66,8 +66,11 @@ export const ParachainsDetails: (props: ParachainsDetailsProps) => JSX.Element =
                   )}{' '}
                   {relayChain.unit}
                 </td>
-                <td>{WebsiteLinkLogo(p)}</td>
-                <td>{PolkadotJsLinkLogo(p)}</td>
+                <td>
+                  {WebsiteLinkLogo(p)}
+                  {PolkadotJsLinkLogo(p)}
+                </td>
+                <td></td>
               </tr>
             );
           })}

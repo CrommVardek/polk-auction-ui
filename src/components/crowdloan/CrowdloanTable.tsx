@@ -1,10 +1,17 @@
 import React from 'react';
 import { Fund } from '../../polk-auction-api/models/Crowdloan';
+import { LeasePeriod } from '../../polk-auction-api/models/Lease';
 import { Parachain } from '../../polk-auction-api/models/Parachain';
 import { selectRelayChain } from '../../store/application-state/ApplicationStateSelector';
 import { PolkAuctionStore } from '../../store/PolkAuctionStore';
 import { numberWithCommas } from '../../utils/DisplayUtils';
+import {
+  getMaxEndDateLeasePeriod,
+  getMinStartDateLeasePeriod,
+  timeStampToDateFormattedString,
+} from '../../utils/LeasePeriodUtils';
 import { PolkadotJsLinkLogo, WebsiteLinkLogo } from '../common/LogoWithLinks';
+import { Tooltip } from '../common/ToolTip';
 import './CrowdloanPage.css';
 
 interface CrowdloanTableProps {
@@ -28,15 +35,19 @@ export const CrowdloanTable: (props: CrowdloanTableProps) => JSX.Element = ({ fu
         {funds
           ?.sort((f, next) => f.parachainId - next.parachainId)
           ?.map((f) => {
+            const startDate = timeStampToDateFormattedString(f.fundInfo.firstPeriodStartTimeStamp);
+            const endDate = timeStampToDateFormattedString(f.fundInfo.lastPeriodEndTimeStamp);
             return (
               <tr>
                 <td>{f.parachainId}</td>
                 <td>{f.parachainName}</td>
                 <td>{f.fundInfo.depositor}</td>
                 <td>
-                  {f.fundInfo.firstPeriod}
-                  {'-'}
-                  {f.fundInfo.lastPeriod}
+                  <Tooltip text={`(From ${startDate} to ${endDate})`}>
+                    {f.fundInfo.firstPeriod}
+                    {'-'}
+                    {f.fundInfo.lastPeriod}
+                  </Tooltip>
                 </td>
                 <td>
                   {numberWithCommas(Math.ceil(f.fundInfo.raised / (relayChain.planckDenomination! as number)))}

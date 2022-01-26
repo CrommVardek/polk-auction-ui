@@ -1,10 +1,12 @@
 import React, { CSSProperties } from 'react';
+import './Common.css';
 
 interface CustomIconProps {
-  logoSvg: string;
-  link: string;
+  logoSvg: string | undefined;
+  link: string | undefined;
   style?: CSSProperties | undefined;
   className?: string | undefined;
+  withHover?: boolean;
 }
 
 export const CustomIcon: (props: CustomIconProps) => JSX.Element = ({
@@ -13,9 +15,12 @@ export const CustomIcon: (props: CustomIconProps) => JSX.Element = ({
   style,
   className = 'custom-icon',
 }: CustomIconProps) => {
-  return (
+  const image = <img src={logoSvg} style={{ ...style }} className={className} />;
+  return link === undefined ? (
+    <span style={{ ...style }} className={className} />
+  ) : (
     <a href={link} target='_blank'>
-      <img src={logoSvg} alt={className} style={{ ...style }} className={className} />
+      {image}
     </a>
   );
 };

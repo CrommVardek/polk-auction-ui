@@ -10,7 +10,9 @@ interface FundInfo {
   end: number;
   cap: number;
   firstPeriod: string;
+  firstPeriodStartTimeStamp: number;
   lastPeriod: string;
+  lastPeriodEndTimeStamp: number;
   trieIndex: string;
   state: string;
 }

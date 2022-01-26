@@ -5,6 +5,11 @@
     margin-right: auto;
 }
 
+.website-icon:hover {
+  /* fill: white;
+  border-radius: 9px; */
+}
+
 .tooltip {
     position: relative;
     display: inline-block;

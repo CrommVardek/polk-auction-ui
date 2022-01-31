@@ -6,7 +6,7 @@ import { PolkAuctionStore } from '../../store/PolkAuctionStore';
 import { numberWithCommas } from '../../utils/DisplayUtils';
 import { getMaxEndDateLeasePeriod, getMinStartDateLeasePeriod } from '../../utils/LeasePeriodUtils';
 import { WebsiteLinkLogo, PolkadotJsLinkLogo } from '../common/LogoWithLinks';
-import { Tooltip } from '../common/ToolTip';
+import { Tooltip } from '../common/Tooltip';
 import './ParachainsPage.css';
 import '../common/Common.css';
 

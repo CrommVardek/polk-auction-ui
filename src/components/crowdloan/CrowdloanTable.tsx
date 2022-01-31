@@ -6,7 +6,7 @@ import { PolkAuctionStore } from '../../store/PolkAuctionStore';
 import { numberWithCommas } from '../../utils/DisplayUtils';
 import { timeStampToDateFormattedString } from '../../utils/LeasePeriodUtils';
 import { PolkadotJsLinkLogo, WebsiteLinkLogo } from '../common/LogoWithLinks';
-import { Tooltip } from '../common/ToolTip';
+import { Tooltip } from '../common/Tooltip';
 import './CrowdloanPage.css';
 
 interface CrowdloanTableProps {

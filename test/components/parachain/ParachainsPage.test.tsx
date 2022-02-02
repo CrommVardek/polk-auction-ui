@@ -30,7 +30,7 @@ describe('<ParachainsPage />', () => {
       return { data: parachains as Parachain[], loading: false };
     });
     const wrapper = mount(<ParachainsPage />);
-    expect(wrapper.find(CustomIcon)).toHaveLength(parachains.filter((p) => p.website !== undefined).length);
+    expect(wrapper.find('img.website-icon')).toHaveLength(parachains.filter((p) => p.website !== undefined).length);
   });
 
   it('renders X <tr>, where X is the number of parachains with lifecycle Parachain + 1', () => {

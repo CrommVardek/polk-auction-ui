@@ -16,9 +16,7 @@ export const CustomIcon: (props: CustomIconProps) => JSX.Element = ({
   className = 'custom-icon',
 }: CustomIconProps) => {
   const image = <img src={logoSvg} style={{ ...style }} className={className} />;
-  return link === undefined ? (
-    <span style={{ ...style }} className={className} />
-  ) : (
+  return (
     <a href={link} target='_blank'>
       {image}
     </a>

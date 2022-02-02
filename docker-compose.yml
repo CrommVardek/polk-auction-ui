@@ -1,0 +1,17 @@
+version: "3.8"
+
+networks:
+    polkadot:
+        external: true
+    kusama:
+        external: true
+
+services: 
+    polk-auction-core-api:
+        image: polk-auction-ui:latest
+        container_name: polk-auction-ui
+        ports:
+            - "127.0.200.1:80:80"
+        networks:
+            - polkadot
+            - kusama

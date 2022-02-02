@@ -7,8 +7,8 @@ import { Header } from '../src/components/header/Header';
 
 test('app name is in App', () => {
   render(<App />);
-  const appNameElement = screen.getByText(/PolkAuction/i);
-  expect(appNameElement).toBeInTheDocument();
+  const appNameElement = screen.getAllByText(/PolkAuction/i);
+  expect(appNameElement.find((e) => e.className == 'application-name')).toBeInTheDocument();
 });
 
 describe('<App />', () => {

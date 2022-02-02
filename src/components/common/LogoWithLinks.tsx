@@ -4,12 +4,26 @@ import websiteLogo from '../../assets/logos/globe-website.svg';
 import polkadotJsLogo from '../../assets/logos/polkadot-js.svg';
 import { CustomIcon } from './Icon';
 
-const iconStyle: CSSProperties = { width: '18px', height: '18px', margin: '3px', marginLeft: '6px' };
+const iconStyle: CSSProperties = {
+  width: '18px',
+  height: '18px',
+  margin: '3px',
+  marginLeft: '6px',
+  display: 'inline-block',
+};
 
 export const WebsiteLinkLogo = (p: Parachain) => {
-  return <CustomIcon logoSvg={websiteLogo} link={p.website} style={iconStyle} className='website-icon' />;
+  return p.website === undefined || p.website === null ? (
+    <span style={{ ...iconStyle }} />
+  ) : (
+    <CustomIcon logoSvg={websiteLogo} link={p.website} style={iconStyle} className='website-icon' />
+  );
 };
 
 export const PolkadotJsLinkLogo = (p: Parachain) => {
-  return <CustomIcon logoSvg={polkadotJsLogo} link={p.polkadotJsExplorerUrl} style={iconStyle} />;
+  return p.website === undefined || p.website === null ? (
+    <span style={{ ...iconStyle }} />
+  ) : (
+    <CustomIcon logoSvg={polkadotJsLogo} link={p.polkadotJsExplorerUrl} style={iconStyle} />
+  );
 };

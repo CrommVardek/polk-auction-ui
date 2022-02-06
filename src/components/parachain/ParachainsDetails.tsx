@@ -48,7 +48,6 @@ export const ParachainsDetails: (props: ParachainsDetailsProps) => JSX.Element =
                 } as LeasePeriod;
               }),
             );
-            console.log(endDate);
             return (
               <tr>
                 <td>{p.parachainId}</td>

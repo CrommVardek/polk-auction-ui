@@ -2,7 +2,7 @@ import React, { useMemo } from 'react';
 import { Auction } from '../../polk-auction-api/models/Auction';
 import { selectRelayChain } from '../../store/application-state/ApplicationStateSelector';
 import { PolkAuctionStore } from '../../store/PolkAuctionStore';
-import { numberWithCommas } from '../../utils/DisplayUtils';
+import { numberWithCommas, tryNumberFromStringWithCommas } from '../../utils/DisplayUtils';
 import { getMaxEndDateLeasePeriod, getMinStartDateLeasePeriod } from '../../utils/LeasePeriodUtils';
 import './AuctionPage.css';
 
@@ -21,15 +21,18 @@ export const AuctionDetails: (props: AuctionDetailsProps) => JSX.Element = ({ au
         </div>
       ) : (
         <>
-          {auction?.currentWinning?.forEach((e) => console.log(e))}
           <div className='auction-summary'>
             <div className='auction-summary-item-container'>
               <div className='auction-summary-item-container'>{'Begin End height: '}</div>
-              <div className='auction-summary-item-container'>{auction?.beginEnd}</div>
+              <div className='auction-summary-item-container'>
+                {'# ' + tryNumberFromStringWithCommas(auction?.beginEnd)}
+              </div>
             </div>
             <div className='auction-summary-item-container'>
               <div className='auction-summary-item-container'>{'Finish End height: '}</div>
-              <div className='auction-summary-item-container'>{auction?.finishEnd}</div>
+              <div className='auction-summary-item-container'>
+                {'# ' + tryNumberFromStringWithCommas(auction?.finishEnd)}
+              </div>
             </div>
             <div className='auction-summary-item-container'>
               <div className='auction-summary-item-container'>{'Lease periods: '}</div>

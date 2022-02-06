@@ -6,6 +6,11 @@
     min-height: 100vh;
 }
 
+.auction-details {
+    display: flex;
+    flex-direction: column;
+}
+
 .auction-summary {
     display: flex;
     flex-direction: column;
@@ -24,8 +29,9 @@
 }
 
 .auction-table {
-    margin-left: 10px;
-    margin-top: 4px;
+    margin-left: 40px;
+    margin-right: 60px;
+    margin-top: 16px;
 }
 
 .auction-table th {

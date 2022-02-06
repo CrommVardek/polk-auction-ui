@@ -11,7 +11,7 @@ User Interface for the [PolkAuction core](https://github.com/CrommVardek/polk-au
 
 ## Run
 
-> Note: Polk-auction UI is requesting data from PolkAuction Core, refer to the link above for instructions to run it before running an instance of PolkAuction UI. You can also change the endpoint in the .env configuration file.
+> Note: Polk-auction UI is requesting data from PolkAuction Core, refer to the link above for instructions to run it before running an instance of PolkAuction UI. You can also change the endpoint in the .env configuration file if your Polkauction Core instance's endpoint is different (i.e. you changed it).
 
 Locally : `yarn start`
 

@@ -1,5 +1,5 @@
 # Build step
-FROM node:14 as build
+FROM node:16 as build
 WORKDIR /app
 COPY package*.json ./
 RUN yarn install

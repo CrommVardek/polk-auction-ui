@@ -86,10 +86,5 @@
       "<rootDir>/test/setupTests.ts"
     ],
     "testEnvironment": "jsdom"
-  },
-  "alias": {
-    "process": {
-      "global": "process"
-    }
   }
 }

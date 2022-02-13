@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useMemo } from 'react';
 import { RelayChain } from '../../models/Chain';
 import { selectRelayChain } from '../../store/application-state/ApplicationStateSelector';
 import { PolkAuctionStore } from '../../store/PolkAuctionStore';
@@ -17,8 +17,13 @@ export const RelayChainButton: (props: RelayChainButtonProps) => JSX.Element = (
   onClick,
 }: RelayChainButtonProps) => {
   const currentRelayChain = PolkAuctionStore.useState(selectRelayChain);
+  const buttonClassName = useMemo(() => {
+    console.log(currentRelayChain.name.toLowerCase());
+    console.log(chain.name.toLowerCase());
+    return currentRelayChain.name.toLowerCase() === chain.name.toLowerCase() ? 'selected' : '';
+  }, [currentRelayChain, chain.name]);
   return (
-    <button key={chain.name} id={chain.name} onClick={() => onClick(chain.name)}>
+    <button className={buttonClassName} key={chain.name} id={chain.name} onClick={() => onClick(chain.name)}>
       <span
         style={{
           backgroundColor: currentRelayChain.name === chain.name ? '#ccc' : currentRelayChain.mainColor,

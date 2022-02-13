@@ -7,7 +7,7 @@ networks:
         external: true
 
 services: 
-    polk-auction-core-api:
+    polk-auction-ui:
         image: polk-auction-ui:latest
         container_name: polk-auction-ui
         ports:

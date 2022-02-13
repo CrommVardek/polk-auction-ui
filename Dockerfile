@@ -1,7 +1,7 @@
 # Build step
 FROM node:14 as build
 WORKDIR /app
-COPY package*.json ./
+COPY package.json yarn.lock ./
 RUN yarn install
 COPY . ./
 RUN yarn build:prod

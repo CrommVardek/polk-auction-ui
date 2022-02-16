@@ -16,12 +16,13 @@ export const RelayChainButton: (props: RelayChainButtonProps) => JSX.Element = (
   chain,
   onClick,
 }: RelayChainButtonProps) => {
+
   const currentRelayChain = PolkAuctionStore.useState(selectRelayChain);
+
   const buttonClassName = useMemo(() => {
-    console.log(currentRelayChain.name.toLowerCase());
-    console.log(chain.name.toLowerCase());
-    return currentRelayChain.name.toLowerCase() === chain.name.toLowerCase() ? 'selected' : '';
+    return currentRelayChain.name.toLowerCase() === chain.name.toLowerCase() ? 'active' : 'not-active';
   }, [currentRelayChain, chain.name]);
+
   return (
     <button className={buttonClassName} key={chain.name} id={chain.name} onClick={() => onClick(chain.name)}>
       <span

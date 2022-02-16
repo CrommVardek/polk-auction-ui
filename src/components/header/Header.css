@@ -31,6 +31,10 @@
   font-size: 16px;
 }
 
+.relay-chains-tab:hover > .active {
+  background-color: inherit;
+}
+
 .relay-chains-tab button {
   background-color: inherit;
   float: left;
@@ -42,19 +46,11 @@
   transition: 0.4s;
 }
 
-.relay-chains-tab button:hover {
+.relay-chains-tab .active,
+.relay-chains-tab button:hover,
+.relay-chains-tab button.active:hover
+{
   background-color: #ccc;
   border-radius: 8px 8px 0px 0px;
   border: 0px solid
-}
-
-.relay-chains-tab .selected {
-  background-color: #ccc;
-  border-radius: 8px 8px 0px 0px;
-  border: 0px solid
-}
-
-.relay-chains-tab button.active {
-  opacity: 1;
-  background-color: #ccc;
 }

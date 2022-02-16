@@ -6,6 +6,7 @@ import { PolkAuctionStore } from '../../store/PolkAuctionStore';
 interface RelayChainButtonProps {
   chain: RelayChain;
   onClick: (chainName: string) => void;
+  keyIndex: number;
 }
 
 interface RelayChainsTabProps {
@@ -15,8 +16,8 @@ interface RelayChainsTabProps {
 export const RelayChainButton: (props: RelayChainButtonProps) => JSX.Element = ({
   chain,
   onClick,
+  keyIndex,
 }: RelayChainButtonProps) => {
-
   const currentRelayChain = PolkAuctionStore.useState(selectRelayChain);
 
   const buttonClassName = useMemo(() => {
@@ -24,7 +25,7 @@ export const RelayChainButton: (props: RelayChainButtonProps) => JSX.Element = (
   }, [currentRelayChain, chain.name]);
 
   return (
-    <button className={buttonClassName} key={chain.name} id={chain.name} onClick={() => onClick(chain.name)}>
+    <button className={buttonClassName} key={keyIndex} id={chain.name} onClick={() => onClick(chain.name)}>
       <span
         style={{
           backgroundColor: currentRelayChain.name === chain.name ? '#ccc' : currentRelayChain.mainColor,
@@ -58,8 +59,8 @@ export const RelayChainsTab: (props: RelayChainsTabProps) => JSX.Element = ({ ch
     >
       <nav>
         <div className='relay-chains-tab'>
-          {chains.map((c) => (
-            <RelayChainButton chain={c} onClick={switchChain} />
+          {chains.map((c, index) => (
+            <RelayChainButton chain={c} onClick={switchChain} keyIndex={index} />
           ))}
         </div>
       </nav>

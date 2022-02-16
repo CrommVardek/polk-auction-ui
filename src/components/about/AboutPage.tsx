@@ -31,6 +31,16 @@ export const AboutPage = () => {
           report it <a href='https://github.com/CrommVardek/polk-auction-ui/issues/new'>here</a>.
         </p>
       </div>
+      <br />
+      <h3>FAQ</h3>
+      <div className='faq-content'>
+        <p>
+          <b>How can I contribute to crowdloans?</b> Currently this website does not support contributing to crowdloans.
+          You can contribute through the <a href='https://polkadot.js.org/'>polakdot-js UI</a>, via the candidate's
+          website or through a wallet that supports crowdloan (however we strongly suggest you to DYOR before using any
+          third-party tool to contribute to any crowdloan)
+        </p>
+      </div>
     </div>
   );
 };

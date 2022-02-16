@@ -3,21 +3,23 @@ User Interface for the [PolkAuction core](https://github.com/CrommVardek/polk-au
 
 ## Requirements
 
+### To be installed :
+
  - NodeJs
 
-## Build (with Docker)
-
-`docker build -t polk-auction-ui .`
-
-## Run
-
-First install or upgrade yarn with the following command :
+Once node.js is installed, install or upgrade yarn with the following command :
 
 `npm install --global yarn`
 
 Then install the packages with :
 
 `yarn`
+
+## Build (with Docker)
+
+`docker build -t polk-auction-ui .`
+
+## Run
 
 > Note: Polk-auction UI is requesting data from PolkAuction Core, refer to the link above for instructions to run it before running an instance of PolkAuction UI. You can also change the endpoint in the .env configuration file if your Polkauction Core instance's endpoint is different (i.e. you changed it).
 

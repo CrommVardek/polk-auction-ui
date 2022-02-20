@@ -17,8 +17,8 @@ export const CrowdloanTable: (props: CrowdloanTableProps) => JSX.Element = ({ fu
   const relayChain = PolkAuctionStore.useState(selectRelayChain);
   return (
     <table className='crowdloan-table'>
-      <tbody>
-        <tr>
+      <tbody key={'crowdloan-table'}>
+        <tr key={0}>
           <th>Parachain Id</th>
           <th>Name</th>
           <th>Depositor</th>
@@ -33,7 +33,7 @@ export const CrowdloanTable: (props: CrowdloanTableProps) => JSX.Element = ({ fu
             const startDate = timeStampToDateFormattedString(f.fundInfo.firstPeriodStartTimeStamp);
             const endDate = timeStampToDateFormattedString(f.fundInfo.lastPeriodEndTimeStamp);
             return (
-              <tr>
+              <tr key={f.parachainId}>
                 <td>{f.parachainId}</td>
                 <td>{f.parachainName}</td>
                 <td>{f.fundInfo.depositor}</td>

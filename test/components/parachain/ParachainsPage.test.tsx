@@ -8,7 +8,6 @@ import { Parachain } from '../../../src/polk-auction-api/models/Parachain';
 import { parachains, parachainsWithParaThreads } from '../../testData';
 
 describe('<ParachainsPage />', () => {
-
   it('renders one spinner if loading data', () => {
     const wrapper = mount(<ParachainsPage />);
     expect(wrapper.find(SpinnerDotted)).toHaveLength(1);
@@ -23,7 +22,6 @@ describe('<ParachainsPage />', () => {
     expect(wrapper.find('table')).toHaveLength(1);
   });
 
-  //TODO
   it('renders as much website link as there are parachain URL from data', () => {
     const useParachainsMock = jest.spyOn(apiClient, 'useParachains');
     useParachainsMock.mockImplementation((relayChain: String) => {

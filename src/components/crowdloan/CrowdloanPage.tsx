@@ -11,6 +11,7 @@ export const CrowdloanPage = () => {
   const relayChain = PolkAuctionStore.useState(selectRelayChain);
 
   const crowdloans = useCrowdloans(relayChain.name);
+
   return (
     <div className='crowdloan-page'>
       {crowdloans.loading ? (

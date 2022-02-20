@@ -20,7 +20,7 @@ export const ParachainsDetails: (props: ParachainsDetailsProps) => JSX.Element =
   return (
     <table className='parachain-table'>
       <tbody>
-        <tr>
+        <tr key={0}>
           <th>Parachain Id</th>
           <th>Name</th>
           <th>Lease Periods</th>
@@ -49,7 +49,7 @@ export const ParachainsDetails: (props: ParachainsDetailsProps) => JSX.Element =
               }),
             );
             return (
-              <tr>
+              <tr key={p.parachainId}>
                 <td>{p.parachainId}</td>
                 <td>{p.parachainName}</td>
                 <td>

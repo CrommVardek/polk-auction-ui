@@ -35,6 +35,10 @@ Run with Docker : `docker-compose up -d --build`
 
 Tests : `yarn test`
 
+## Configuration
+
+In case the URL (IP and/or port) of the polk-auction-server has been changed (either directly or by forwarding URL), you need to adapt the POLK_AUCTION_ENDPOINT value in [the .env.prod file](./.env.prod)
+
 ## Contributions, issues and PR
 
 We are open to contributions, ideas, issues, etc. Feel free to open a PR or an issue.

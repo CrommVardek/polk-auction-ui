@@ -1,3 +1,7 @@
+[![Apache 2.0 license](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](./LICENSE)
+
+<img align="right" width="420" src="https://raw.githubusercontent.com/w3f/General-Grants-Program/master/src/badge_black.svg">
+
 # PolkAuction UI
 User Interface for the [PolkAuction core](https://github.com/CrommVardek/polk-auction-core)
 

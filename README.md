@@ -33,7 +33,7 @@ Run Locally : `yarn start`
 
 Run with Docker : `docker-compose up -d --build`
 
-(Accessible at http://127.0.200.1)
+(Accessible at http://localhost)
 
 ## Test
 

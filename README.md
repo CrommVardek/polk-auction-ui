@@ -31,7 +31,7 @@ Run Locally : `yarn start`
 
 (Accessible at http://localhost:3000/)
 
-Run with Docker : `docker-compose up -d --build`
+Run with Docker : `docker-compose up -d --build polk-auction-ui`
 
 (Accessible at http://localhost)
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import App from '../src/App';
-import { Footer } from '../src/components/Footer';
+import { Footer } from '../src/components/footer/Footer';
 import { mount } from 'enzyme';
 import { Header } from '../src/components/header/Header';
 

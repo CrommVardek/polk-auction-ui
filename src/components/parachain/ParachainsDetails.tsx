@@ -26,7 +26,6 @@ export const ParachainsDetails: (props: ParachainsDetailsProps) => JSX.Element =
           <th>Lease Periods</th>
           <th>Deposit</th>
           <th />
-          <th />
         </tr>
         {parachains
           ?.filter((p) => p.parachainLifeCycle === 'PARACHAIN')
@@ -49,7 +48,7 @@ export const ParachainsDetails: (props: ParachainsDetailsProps) => JSX.Element =
               }),
             );
             return (
-              <tr key={p.parachainId}>
+              <tr key={p.parachainId} className='table-row'>
                 <td>{p.parachainId}</td>
                 <td>{p.parachainName}</td>
                 <td>
@@ -69,7 +68,6 @@ export const ParachainsDetails: (props: ParachainsDetailsProps) => JSX.Element =
                   {WebsiteLinkLogo(p)}
                   {PolkadotJsLinkLogo(p)}
                 </td>
-                <td></td>
               </tr>
             );
           })}

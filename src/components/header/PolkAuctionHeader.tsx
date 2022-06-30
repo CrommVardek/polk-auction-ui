@@ -6,6 +6,8 @@ import polkadotLogo from '../../assets/logos/polkadot-logo-white.svg';
 import { selectRelayChain } from '../../store/application-state/ApplicationStateSelector';
 import { PolkAuctionStore } from '../../store/PolkAuctionStore';
 import { CustomIcon } from '../common/Icon';
+import { RelayChainName } from '../../models/Chain';
+import './GlitchHeader.scss';
 
 interface RelayChainIconProps {
   relayChainName: string;
@@ -28,7 +30,7 @@ const RelayChainIcon: (props: RelayChainIconProps) => JSX.Element = ({
   relayChainName,
   website,
 }: RelayChainIconProps) => {
-  const logo = relayChainName.toLowerCase() === 'kusama' ? kusamaLogo : polkadotLogo;
+  const logo = relayChainName.toLowerCase() === RelayChainName.Kusama ? kusamaLogo : polkadotLogo;
   return CustomIcon({ logoSvg: logo, link: website, style: { width: '32px', height: '32px', margin: '6px' } });
 };
 
@@ -42,8 +44,8 @@ export const PolkAuctionHeader: (props: PolkAuctionHeaderProps) => JSX.Element =
     <div style={relayChainStyle} className='polkauction-header'>
       <nav style={{ display: 'flex' }}>
         <div>
-          <span>
-            <h2 className='application-name'>{applicationName}</h2>
+          <span data-Text={applicationName}>
+            <h2 className={`application-name ${currentRelayChain.name.toLowerCase()}-header`}>{applicationName}</h2>
           </span>
           <span className='polkauction-header-links'>
             <Link to='/about' style={{ ...relayChainStyle, textDecoration: 'none', marginRight: '12px' }}>

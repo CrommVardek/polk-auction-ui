@@ -9,3 +9,8 @@ export type Blockchain = {
   name: string;
   unit: string;
 };
+
+export enum RelayChainName {
+  Kusama = 'kusama',
+  Polkadot = 'polkadot',
+}

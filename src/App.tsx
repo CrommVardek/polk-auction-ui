@@ -34,7 +34,7 @@ const App = () => {
 
   useEffect(() => {
     PolkAuctionStore.update((s) => {
-      s.currentRelayChain = chains[1];
+      s.currentRelayChain = chains[0];
     });
   });
 
